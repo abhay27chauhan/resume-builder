@@ -15,4 +15,6 @@ const reduxStore = createStore(
   )
 );
 
+console.log("store ", reduxStore)
+
 export default reduxStore;

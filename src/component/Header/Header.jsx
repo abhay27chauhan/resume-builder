@@ -1,18 +1,35 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from "react-redux";
+import { isLoaded, isEmpty } from "react-redux-firebase";
+import { useHistory } from 'react-router-dom'
+
 import './Header.scss';
 
-function Header() {
-    const [user, setUser] = useState(false);
+import { signout } from '../../redux/actions/authActions';
+
+function Header(props) {
+    console.log("Header ", props);
+    const auth = props.auth
+    const history = useHistory();
 
     const handleSignOut = () => {
-
+        props.signOut()
     }
+
+    useEffect(() => {
+        if(props.auth?.uid){
+          history.push('/')
+        }
+    }, [props])
+    
 
     return (
         <div className="header">
             <div className="logo_container">
-                <h3>RESUME BUILDER</h3>
+                <Link to='/'>
+                    <h3>RESUME BUILDER</h3>
+                </Link>
             </div>
             <div className="header-links">
                 <div className="header-link static-link">
@@ -24,10 +41,10 @@ function Header() {
                     </Link>
                 </div>
                 {
-                    user ? 
+                    isLoaded(auth) && !isEmpty(auth)  ? 
                     (
                         <div className="header-link">
-                            <p>Logged in as Abhay Chauhan</p>
+                            <p>Logged in as {auth.email}</p>
                             <button className="signout" onClick={handleSignOut}>Signout </button>
                         </div>
                     ) 
@@ -49,4 +66,16 @@ function Header() {
     )
 }
 
-export default Header;
+const mapStateToProps = (state) => {
+    return {
+      auth: state.firebase.auth,
+    };
+};
+  
+const mapDispatchToProps = (dispatch) => {
+    return {
+      signOut: () => dispatch(signout()),
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
