@@ -1,0 +1,38 @@
+.aboutus{
+    padding-top: 85px;
+    width: 90%;
+    margin: 0 5%;
+    font-family: "Josefin Sans";
+
+    &__contact-section{
+        width: 100%;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+    }
+
+    &__contact-left-section{
+        width: 50%;
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: center;
+
+        p{
+            font-size: 1rem;
+            margin-top: 0;
+            line-height: 1.4;
+        }
+
+        h2{
+            font-size: 1.6rem;
+        }
+    }
+
+    &__contact-right-section{
+        width: 45%;
+
+        img{
+            height: 300px;
+        }
+    }
+}
