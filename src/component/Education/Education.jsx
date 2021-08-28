@@ -143,7 +143,7 @@ function Education(props) {
           </div>
         </div>
 
-        <div className="preview-card">
+        <div className="education__preview-card">
           <ResumePreview
             educationSection={education}
             contactSection={props.contactSection}

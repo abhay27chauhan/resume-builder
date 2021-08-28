@@ -87,4 +87,10 @@
     .center{
         text-align: center;
     }
+
+    &__preview-card{
+        width: 40%;
+        background-color: #fff;
+        box-shadow: 0 2px 9px rgba(186, 186, 186, 0.5);
+    }
 }

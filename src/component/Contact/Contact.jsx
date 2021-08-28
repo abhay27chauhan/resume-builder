@@ -210,7 +210,7 @@ function Contact(props) {
           </div>
         </div>
 
-        <div className="preview-card">
+        <div className="contact__preview-card">
           <ResumePreview
             contactSection={contact}
             skinCd={props.document.skinCd}

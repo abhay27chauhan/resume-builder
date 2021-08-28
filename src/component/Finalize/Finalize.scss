@@ -1,0 +1,52 @@
+.finalize{
+    margin-top: 62px;
+    width: 100%;
+    font-family: "Josefin Sans";
+
+    &__funnel-section{
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+    }
+
+    &__preview-card{
+        width: 60%;
+        margin: 0 5%;
+        margin-top: 57px;
+        display: flex;
+        justify-content: center;
+    }
+
+    &__settings{
+        width: 30%;
+        box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.25);
+        padding: 2%;
+        min-height: 100vh;
+
+        &.center{
+            text-align: center;
+        }
+
+        .resume-options{
+            margin: 15px 0;
+        }
+
+        .no-margin{
+            margin: 0;
+            font-size: 1.1rem;
+            line-height: 1.48;
+        }
+
+        a{
+            text-decoration: none;
+            color: #1dbfaf;
+            outline: #1dbfaf;
+            line-height: 1.48;
+
+            &:hover{
+                color: #5ae4ce;
+                text-decoration: underline #ebebeb;
+            }
+        }
+    }
+}
