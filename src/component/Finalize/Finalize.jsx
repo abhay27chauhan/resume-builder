@@ -14,6 +14,31 @@ function Finalize(props) {
 
   const firestore = useFirestore();
 
+  const downloadResumeAsJSON = () => {
+    const newObj = {
+      [documentObj.id]: {
+        educationSection: educationSection,
+        contactSection: contactSection,
+        document: documentObj,
+      }
+    }
+
+    const data = JSON.stringify(newObj, null, '\t');
+
+    const blob = new Blob([data], { type: 'application/json' });
+
+    // Create new URL
+    const url = window.URL.createObjectURL(blob);
+
+    let a = document.createElement("a");
+
+    a.href = url;
+
+    a.download = "resumeJSON.json";
+
+    a.click();
+  }
+
   const downloadResume = () => {
     const input = document.getElementById('resumePreview');
      html2canvas(input)
@@ -73,6 +98,12 @@ function Finalize(props) {
           ></ResumePreview>
         </div>
         <div className="finalize__settings center">
+          <div className="resume-options">
+            <p className="no-margin">Download Resume As JSON</p>
+            <a style={{ cursor: "pointer" }} onClick={downloadResumeAsJSON}>
+              Download Resume
+            </a>
+          </div>
           <div className="resume-options">
             <p className="no-margin">Download Resume As PDF</p>
             <a style={{ cursor: "pointer" }} onClick={downloadResume}>

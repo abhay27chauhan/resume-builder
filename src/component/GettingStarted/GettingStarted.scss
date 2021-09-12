@@ -10,20 +10,16 @@
         flex-flow: column wrap;
         justify-content: center;
         align-items: center;
-
-        .center{
-            text-align: center;
-        }
-
     }
 
     &__styleTemplate{
         width: 100%;
         display: flex;
         flex-flow: row wrap;
+        justify-content: center;
 
         .template-card{
-            flex: 1 0 17.4rem;
+            flex: 0 0 17.4rem;
             margin: 12px;
             height: 360px;
             border-radius: 5%;
